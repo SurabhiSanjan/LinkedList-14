@@ -46,12 +46,28 @@ public class LinkedList {
         head = newNode;
     }
 
+    public void insertBW(int data){
+        Node newNode = new Node(data);
+        if(head == null){
+            System.out.println(" the list is empty");
+            return;
+        }
+        Node first = head;
+        Node last = head.next;
+        while(last.data != 70 && first.data !=56){
+            last = last.next;
+            first = first.next;
+        }
+        first.next=newNode;
+        last= newNode.next;
+    }
+
         public static void main (String[] args){
             System.out.println("Welcome to LinkedList Practice Problem");
             LinkedList ll = new LinkedList();
             ll.addLast(56);
-            ll.addLast(30);
             ll.addLast(70);
+            ll.insertBW(30);
             ll.printNode();
         }
     }
