@@ -35,14 +35,23 @@ public class LinkedList {
         }
         tempNode.next = newNode;
     }
-    
+
+    public void addFirst(int data){
+        Node newNode = new Node(data);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
 
         public static void main (String[] args){
             System.out.println("Welcome to LinkedList Practice Problem");
             LinkedList ll = new LinkedList();
-            ll.addLast(56);
-            ll.addLast(30);
-            ll.addLast(70);
+            ll.addFirst(70);
+            ll.addFirst(30);
+            ll.addFirst(56);
             ll.printNode();
         }
     }
