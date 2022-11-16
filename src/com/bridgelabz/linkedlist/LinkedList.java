@@ -49,9 +49,9 @@ public class LinkedList {
         public static void main (String[] args){
             System.out.println("Welcome to LinkedList Practice Problem");
             LinkedList ll = new LinkedList();
-            ll.addFirst(70);
-            ll.addFirst(30);
-            ll.addFirst(56);
+            ll.addLast(56);
+            ll.addLast(30);
+            ll.addLast(70);
             ll.printNode();
         }
     }
