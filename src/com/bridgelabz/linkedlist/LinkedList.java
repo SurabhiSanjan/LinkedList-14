@@ -59,14 +59,17 @@ public class LinkedList {
             first = first.next;
         }
         first.next=newNode;
-        last= newNode.next;
+        newNode.next=last;
     }
 
         public static void main (String[] args){
             System.out.println("Welcome to LinkedList Practice Problem");
             LinkedList ll = new LinkedList();
+            ll.addLast(59);
+            ll.addLast(82);
             ll.addLast(56);
             ll.addLast(70);
+            ll.addLast(14);
             ll.insertBW(30);
             ll.printNode();
         }
