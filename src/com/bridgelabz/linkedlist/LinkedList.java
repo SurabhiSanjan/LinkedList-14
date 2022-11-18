@@ -1,11 +1,9 @@
 package com.bridgelabz.linkedlist;
-
 public class LinkedList {
     Node head;
     class Node {
         int data;
         Node next;
-
         Node(int data) {
             this.data = data;
             this.next = null;
@@ -35,7 +33,6 @@ public class LinkedList {
         }
         tempNode.next = newNode;
     }
-
     public void addFirst(int data){
         Node newNode = new Node(data);
         if(head == null){
@@ -45,7 +42,6 @@ public class LinkedList {
         newNode.next = head;
         head = newNode;
     }
-
     public void insertBW(int data){
         Node newNode = new Node(data);
         if(head == null){
@@ -62,17 +58,24 @@ public class LinkedList {
         newNode.next=last;
     }
 
-        public static void main (String[] args){
-            System.out.println("Welcome to LinkedList Practice Problem");
-            LinkedList ll = new LinkedList();
-            ll.addLast(59);
-            ll.addLast(82);
-            ll.addLast(56);
-            ll.addLast(70);
-            ll.addLast(14);
-            ll.insertBW(30);
-            ll.printNode();
+    public void deleteFirst(){
+        if(head == null){
+            System.out.println(" the list is empty");
+            return;
         }
+        head = head.next;
     }
 
-
+    public static void main (String[] args){
+        System.out.println("Welcome to LinkedList Practice Problem");
+        LinkedList ll = new LinkedList();
+        ll.addLast(59);
+        ll.addLast(70);
+        ll.insertBW(30);
+        System.out.print("After inserting 30 between 59 and 70 ... ");
+        ll.printNode();
+        ll.deleteFirst();
+        System.out.print("After deleting first element ... ");
+        ll.printNode();
+    }
+}
