@@ -84,19 +84,42 @@ public class LinkedList {
         secoundLast.next= null;
     }
 
+    public void search(int data){
+        if(head == null){
+            System.out.println(" the list is empty");
+            return;
+        }
+        Node first = head;
+        Node last = head.next;
+        while(first.data != data){
+            first = first.next;
+            last=last.next;
+            if (last==null && first.data==data){
+                System.out.println(data +" Exists in the Current Linkedlist");
+                return;
+            }
+            if(last==null && first.data!=data){
+                System.out.println(data +" Doesn't Exists in the Current Linkedlist");
+                return;
+            }
+        }
+
+        System.out.println(data +" Exists in the Current Linkedlist");
+    }
+
+
+
     public static void main (String[] args){
         System.out.println("Welcome to LinkedList Practice Problem");
         LinkedList ll = new LinkedList();
         ll.addLast(59);
         ll.addLast(70);
-        ll.insertBW(30);
+        ll.addLast(30);
+        //ll.insertBW(30);
         System.out.print("After inserting 30 between 59 and 70 ... ");
         ll.printNode();
-        ll.deleteFirst();
-        System.out.print("After deleting first element ... ");
+        ll.search(30);
         ll.printNode();
-        ll.deleteLast();
-        System.out.print("After deleting last element ... ");
-        ll.printNode();
+
     }
 }
