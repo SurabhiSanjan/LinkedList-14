@@ -107,7 +107,21 @@ public class LinkedList {
         System.out.println(data +" Exists in the Current Linkedlist");
     }
 
-
+    public void after(int data, int after){
+        Node newNode = new Node(data);
+        if(head == null){
+            System.out.println(" the list is empty");
+            return;
+        }
+        Node first = head;
+        Node second = head.next;
+        while(first.data != after){
+            first = first.next;
+            second=second.next;
+        }
+        first.next=newNode;
+        newNode.next=second;
+    }
 
     public static void main (String[] args){
         System.out.println("Welcome to LinkedList Practice Problem");
@@ -118,8 +132,11 @@ public class LinkedList {
         //ll.insertBW(30);
         System.out.print("After inserting 30 between 59 and 70 ... ");
         ll.printNode();
-        ll.search(30);
+        ll.after(40,30);
+        System.out.print("Adding 40 after 30 ... ");
         ll.printNode();
+
 
     }
 }
+
