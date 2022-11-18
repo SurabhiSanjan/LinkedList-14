@@ -66,6 +66,24 @@ public class LinkedList {
         head = head.next;
     }
 
+    public void deleteLast(){
+        if(head == null){
+            System.out.println(" the list is empty");
+            return;
+        }
+        if(head.next == null){
+            head= null;
+            return;
+        }
+        Node secoundLast = head;
+        Node lastNode = head.next;
+        while(lastNode.next != null){
+            lastNode = lastNode.next;
+            secoundLast = secoundLast.next;
+        }
+        secoundLast.next= null;
+    }
+
     public static void main (String[] args){
         System.out.println("Welcome to LinkedList Practice Problem");
         LinkedList ll = new LinkedList();
@@ -76,6 +94,9 @@ public class LinkedList {
         ll.printNode();
         ll.deleteFirst();
         System.out.print("After deleting first element ... ");
+        ll.printNode();
+        ll.deleteLast();
+        System.out.print("After deleting last element ... ");
         ll.printNode();
     }
 }
