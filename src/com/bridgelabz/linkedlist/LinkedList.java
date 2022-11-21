@@ -32,6 +32,7 @@ public class LinkedList {
             tempNode= tempNode.next;
         }
         tempNode.next = newNode;
+
     }
     public void addFirst(int data){
         Node newNode = new Node(data);
@@ -41,6 +42,7 @@ public class LinkedList {
         }
         newNode.next = head;
         head = newNode;
+
     }
     public void insertBW(int data){
         Node newNode = new Node(data);
@@ -64,6 +66,7 @@ public class LinkedList {
             return;
         }
         head = head.next;
+
     }
 
     public void deleteLast(){
@@ -82,6 +85,7 @@ public class LinkedList {
             secoundLast = secoundLast.next;
         }
         secoundLast.next= null;
+
     }
 
     public void search(int data){
@@ -121,8 +125,48 @@ public class LinkedList {
         }
         first.next=newNode;
         newNode.next=second;
+
     }
 
+    public void delete(int data){
+        if(head == null){
+            System.out.println(" the list is empty");
+            return;
+        }
+        Node first = head;
+        Node last = head.next;
+        Node temp = null;
+        while(first.data != data){
+            temp = first;
+            first = first.next;
+            last=last.next;
+            if (last==null && first.data==data){
+                temp.next=null;
+                return;
+            }
+            if(last==null && first.data!=data){
+                System.out.println(data +" Doesn't Exists in the Current Linkedlist");
+                return;
+            }
+        }
+        temp.next=last;
+
+    }
+    public void count(){
+        Node temp;
+        temp = head;
+        int count = 0;
+        if (head == null) {
+            System.out.println("Linked list empty!!");
+        } else {
+            while (temp.next != null) {
+                temp = temp.next;
+                count++;
+            }
+            count++;
+            System.out.println("Size of Linked list is " + count);
+        }
+    }
     public static void main (String[] args){
         System.out.println("Welcome to LinkedList Practice Problem");
         LinkedList ll = new LinkedList();
@@ -135,8 +179,13 @@ public class LinkedList {
         ll.after(40,30);
         System.out.print("Adding 40 after 30 ... ");
         ll.printNode();
-
+        ll.addLast(80);
+        ll.addLast(90);
+        System.out.print("Adding more values to the list ... ");
+        ll.printNode();
+        ll.delete(40);
+        System.out.print("After deleting 40 from the list ... ");
+        ll.printNode();
 
     }
 }
-
