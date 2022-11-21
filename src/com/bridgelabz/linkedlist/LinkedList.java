@@ -186,6 +186,7 @@ public class LinkedList {
         ll.delete(40);
         System.out.print("After deleting 40 from the list ... ");
         ll.printNode();
+        ll.count();
 
     }
 }
